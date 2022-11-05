@@ -32,6 +32,7 @@ public class Principale {
         Invoice clermont = new Invoice("Mohamed Yacine", liste_perf);
 
         System.out.println(imprimante.print(clermont, plays));
+        System.out.println(clermont.toHTML(plays));
 
 
     }
