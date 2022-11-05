@@ -7,9 +7,9 @@ public class Principale {
 
     public static void main(String[] args) {
         StatementPrinter imprimante = new StatementPrinter();
-        Play piece_tragique = new Play("Les miserables etudiants", "tragedy");
-        Play fary = new Play("Noir is the new black", "comedy");
-        Play blanche = new Play("Blanche", "comedy");
+        Play piece_tragique = new Tragedy("Les miserables etudiants");
+        Play fary = new Comedy("Noir is the new black");
+        Play blanche = new Comedy("Blanche");
 
         Performance perf1 = new Performance("mis01", 2000);
         Performance perf2 = new Performance("mis01", 1200);

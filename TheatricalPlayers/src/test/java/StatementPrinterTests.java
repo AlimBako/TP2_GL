@@ -11,9 +11,9 @@ public class StatementPrinterTests {
     @Test
     void exampleStatement() {
         Map<String, Play> plays = Map.of(
-                "hamlet",  new Play("Hamlet", "tragedy"),
-                "as-like", new Play("As You Like It", "comedy"),
-                "othello", new Play("Othello", "tragedy"));
+                "hamlet",  new Tragedy("Hamlet"),
+                "as-like", new Comedy("As You Like It"),
+                "othello", new Tragedy("Othello"));
 
         Invoice invoice = new Invoice("BigCo", List.of(
                 new Performance("hamlet", 55),
