@@ -26,6 +26,7 @@ public class StatementPrinterTests {
         verify(result);
     }
 
+/* 
     @Test
     void statementWithNewPlayTypes() {
         Map<String, Play> plays = Map.of(
@@ -41,4 +42,5 @@ public class StatementPrinterTests {
             statementPrinter.print(invoice, plays);
         });
     }
+*/
 }

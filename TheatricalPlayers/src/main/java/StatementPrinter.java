@@ -11,31 +11,10 @@ public class StatementPrinter {
 
     for (Performance perf : invoice.performances) {
       Play play = plays.get(perf.playID);
-      double thisAmount = 0;
-
-      switch (play.type) {
-        case "tragedy":
-          thisAmount = 400;
-          if (perf.audience > 30) {
-            thisAmount += 10 * (perf.audience - 30);
-          }
-          break;
-        case "comedy":
-          thisAmount = 300;
-          if (perf.audience > 20) {
-            thisAmount += 100 + 5 * (perf.audience - 20);
-          }
-          thisAmount += 3 * perf.audience;
-          break;
-        default:
-          throw new Error("unknown type: ${play.type}");
-      }
+      double thisAmount = play.calculAmount(perf.audience);
 
       // add volume credits
-      volumeCredits += Math.max(perf.audience - 30, 0);
-
-      // add extra credit for every ten comedy attendees
-      if ("comedy".equals(play.type)) volumeCredits += Math.floor(perf.audience / 5);
+      volumeCredits += play.calculVolumeCredits(perf.audience);
 
       // print line for this order
       result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount), perf.audience);
